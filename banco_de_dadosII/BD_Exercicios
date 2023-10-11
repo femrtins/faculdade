@@ -1,0 +1,32 @@
+use fire 
+
+-- 1) Totalizar número de incêndios por mês, por estado. Em qual ocorreram mais incêndios?
+
+SELECT month , count(*) from amazon group by month;
+
+SELECT * from amazon;
+
+SELECT `month` , SUM(number) from amazon group by `month` 
+
+SELECT state, `month` , SUM(number) as q from  amazon group by state, `month` order by q desc limit 1;
+
+-- 2) Tem-se dito que houve grande aumento de queimadas nos últimos anos. Com base nos dados, escolha um estado e verifique se tal informação é verdadeira.
+
+
+SELECT year, state , SUM(number) from amazon where state="Acre" group by year, state;
+
+-- 3) Qual foi o maior número de queimadas registrado? Informe também o estado, o ano e o mês referentes a esse maior valor. 
+-- A seguir, mostre os 5 maiores números de queimadas, com as informações de estado, ano e mês.
+
+SELECT year, state, month, number from amazon order by number desc limit 1;
+
+SELECT year, state, month, number from amazon order by number desc limit 5;
+
+-- 4) É possível determinar, de forma geral, qual o mês com o maior número de queimadas?
+
+SELECT `month` , sum(number) as q from amazon group by `month` order by q desc limit 1;
+
+-- 5) É possível obter o maior número de queimadas, por mês, por estado? O objetivo é visualizar se esse mês por maior número 
+-- de ocorrências é o mesmo em todos os estados.
+
+
