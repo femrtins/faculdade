@@ -1,4 +1,5 @@
 public class Aresta{
+    
 
     public static int proximoId = 1;
     private int id;
