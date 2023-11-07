@@ -4,11 +4,17 @@ import java.util.List;
 public class Vertice{
     public static int proximoId = 1;
     private int id;
-    private String estado;
     private List<Aresta> arestas = new ArrayList<>();
     private List<Aresta> entrada = new ArrayList<>();
     private List<Aresta> saida = new ArrayList<>();
 
+    public Vertice predecessor;
+    public int distancia;
+    public String estado;
+    public int ta;
+    public int te;
+    
+    public int peso;
 
     public Vertice()
     {
@@ -101,5 +107,10 @@ public class Vertice{
     public String getEstado()
     {
         return estado;
+    } 
+
+    public void imprime()
+    {
+        System.out.println("v" + id);
     } 
 }

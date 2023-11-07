@@ -1,13 +1,12 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Grafo {
 
-    private ArrayList<Vertice> vertices = new ArrayList<>();
-    private ArrayList<Aresta> arestas = new ArrayList<>();
+    public ArrayList<Vertice> vertices = new ArrayList<>();
+    public ArrayList<Aresta> arestas = new ArrayList<>();
     public Grafo()
+    
     {
         vertices = new ArrayList<Vertice>();
     }
@@ -132,48 +131,7 @@ public class Grafo {
         return null;
     }
 
-    public void BuscaEmLargura(Grafo G, Vertice inicial)
-    {
-        Map<Vertice,Vertice> p = new HashMap<Vertice,Vertice>();
-        Map<Vertice,Integer> d = new HashMap<Vertice,Integer>();
 
-        for (Vertice v: vertices)
-        {
-            v.setEstado("NAO_VISITADO");
-            p.put(v, null);
-            d.put(v, Integer.MAX_VALUE);
-            List<Vertice> fila = new ArrayList<>();
-            fila.add(inicial);
-
-            while (fila.size() != 0)
-            {
-                Vertice vi = fila.remove(0);
-                for (Vertice vj: vi.adj())
-                {
-                    if (vj.getEstado() == "NAO_VISITADO")
-                    {
-                        fila.add(vj);
-                        vj.setEstado("VISITADO");
-                        p.put(vj, vi);
-                        d.put(vj, d.get(vi) + 1);
-                    }
-                    vi.setEstado("ENCERRADO");
-                }
-            }
-        }
-    }
-
-    public void ImprimeCaminho(Grafo g, Vertice r, Vertice v)
-    {
-        if (r==v)
-        {
-            g.imprime();
-        }
-        else 
-        {
-            if p()
-        }
-    }
 
     public void imprime()
     {
