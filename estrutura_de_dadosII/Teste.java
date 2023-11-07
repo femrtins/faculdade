@@ -24,15 +24,15 @@ public class Teste {
         Aresta e1 = g.insereA(v1, v2);
         Aresta e2 = g.insereA(v1, v3);
         Aresta e3 = g.insereA(v3, v3);
-        Aresta e4 = g.insereA(v2, v3);
+        Aresta e4 = g.insereA(v2, v9);
         Aresta e5 = g.insereA(v1, v4);
         Aresta e6 = g.insereA(v1, v4);
         Aresta e7 = g.insereA(v4, v5);
         Aresta e8 = g.insereA(v5, v6);
         Aresta e9 = g.insereA(v3, v6);
-        Aresta e10 = g.insereA(v10, v9);
         Aresta e11 = g.insereA(v8, v5);
-        Aresta e12 = g.insereA(v9, v5);
+        Aresta e12 = g.insereA(v9, v10);
+        Aresta e13 = g.insereA(v7, v9);
         
 
         // -------------------- Busca ---------------------
@@ -46,10 +46,18 @@ public class Teste {
         busca1.buscaEmProfundidade(g, v3);
         busca1.ImprimeCaminho(g, v1, v9);
 
+
+        // -------------------- Conexidade ---------------------
+
+        System.out.println("\n----------------------------\n"+"Conexidade\n"+"----------------------------\n");
+        System.out.println(busca.Conexidade(g));
+        
+
         int valor;
         System.out.println("\n----------------------------\n"+"Exibir os outros métodos?\n" + "1 - SIM\n" + "2 - NÃO\n"+"----------------------------\n");
         valor = leitura.nextInt();
         leitura.close();
+
 
         if (valor == 1)
         {
