@@ -5,7 +5,6 @@ public class Teste {
 
         Scanner leitura = new Scanner (System.in);
         Grafo g = new Grafo();
-
         
 
         // --------------------- Inserir Vértices ---------------------
@@ -21,36 +20,29 @@ public class Teste {
         Vertice v10 = g.insereV();
 
         // --------------------- Inserir Arestas ---------------------
-        Aresta e1 = g.insereA(v1, v2);
-        Aresta e2 = g.insereA(v1, v3);
-        Aresta e3 = g.insereA(v3, v3);
-        Aresta e4 = g.insereA(v2, v9);
-        Aresta e5 = g.insereA(v1, v4);
-        Aresta e6 = g.insereA(v1, v4);
-        Aresta e7 = g.insereA(v4, v5);
-        Aresta e8 = g.insereA(v5, v6);
-        Aresta e9 = g.insereA(v3, v6);
-        Aresta e11 = g.insereA(v8, v5);
-        Aresta e12 = g.insereA(v9, v10);
-        Aresta e13 = g.insereA(v7, v9);
+        Aresta e1 = g.insereA(v1, v2, 10);
+        Aresta e2 = g.insereA(v1, v3, 20);
+        Aresta e3 = g.insereA(v3, v3, 15);
+        Aresta e4 = g.insereA(v2, v9, 6);
+        Aresta e5 = g.insereA(v1, v4, 2);
+        Aresta e6 = g.insereA(v1, v4, 14);
+        Aresta e7 = g.insereA(v4, v5, 1);
+        Aresta e8 = g.insereA(v5, v6, 8);
+        Aresta e9 = g.insereA(v3, v6, 19);
+        Aresta e11 = g.insereA(v8, v5, 5);
+        Aresta e12 = g.insereA(v9, v10, 3);
+        Aresta e13 = g.insereA(v7, v9, 7);
         
+        // --------------------- Ordenação Topológica ---------------------
+        System.out.println("\n----------------------------\n"+"Ordenação Topológica\n"+"----------------------------\n");
+        Busca b = new Busca();
+        System.out.println( b.OrdenacaoTopologica(g));
 
-        // -------------------- Busca ---------------------
-        System.out.println("\n----------------------------\n"+"Busca em largura do vértice v1 até v9\n"+"----------------------------\n");
-        Busca busca = new Busca();
-        busca.buscaEmLargura(g, v1);
-        busca.ImprimeCaminho(g, v1, v9);
-
-        System.out.println("\n----------------------------\n"+"Busca em profundidade do vértice v1 até v9\n"+"----------------------------\n");
-        Busca busca1 = new Busca();
-        busca1.buscaEmProfundidade(g, v3);
-        busca1.ImprimeCaminho(g, v1, v9);
-
-
-        // -------------------- Conexidade ---------------------
-
-        System.out.println("\n----------------------------\n"+"Conexidade\n"+"----------------------------\n");
-        System.out.println(busca.Conexidade(g));
+        // --------------------- Algoritmo de Prim ---------------------
+        System.out.println("\n----------------------------\n"+"Algoritmo de Prim\n"+"----------------------------\n");
+        Algoritmos a = new Algoritmos();
+        int custoTotal = a.prim(g, v2);
+        System.out.println("\nCusto Total: " + custoTotal);
         
 
         int valor;
@@ -58,9 +50,28 @@ public class Teste {
         valor = leitura.nextInt();
         leitura.close();
 
-
         if (valor == 1)
         {
+
+            // -------------------- Busca ---------------------
+            System.out.println("\n----------------------------\n"+"Busca em largura do vértice v1 até v9\n"+"----------------------------\n");
+            Busca busca = new Busca();
+            busca.buscaEmLargura(g, v1);
+            busca.ImprimeCaminho(g, v1, v9);
+
+            System.out.println("\n----------------------------\n"+"Busca em profundidade do vértice v1 até v9\n"+"----------------------------\n");
+            Busca busca1 = new Busca();
+            busca1.buscaEmProfundidade(g, v3);
+            busca1.ImprimeCaminho(g, v1, v9);
+
+
+            // -------------------- Conexidade ---------------------
+
+            System.out.println("\n----------------------------\n"+"Conexidade\n"+"----------------------------\n");
+            System.out.println(busca.Conexidade(g));          
+
+
+
             // --------------------- Métodos ---------------------
     
             System.out.println("getOrdem() g: " + g.getOrdem());

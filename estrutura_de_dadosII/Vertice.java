@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vertice{
+public class Vertice implements Comparable<Vertice>{
     public static int proximoId = 1;
     private int id;
     private List<Aresta> arestas = new ArrayList<>();
@@ -9,10 +9,13 @@ public class Vertice{
     private List<Aresta> saida = new ArrayList<>();
 
     public Vertice predecessor;
+    public int chave;
+
     public int distancia;
     public String estado;
     public int ta;
     public int te;
+
     
     public int peso;
 
@@ -113,4 +116,26 @@ public class Vertice{
     {
         System.out.println("v" + id);
     } 
+
+    public String toString()
+    {
+        return("v" + id);
+        // return (""+chave);
+    }
+
+    @Override
+    public int compareTo(Vertice outro) {
+        if (this.chave > outro.chave)
+        {
+            System.out.println("+1");
+            return +1;
+        } 
+        if (this.chave < outro.chave) return -1;
+        return 0;
+
+    }
+
+    
 }
+
+

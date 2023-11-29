@@ -53,7 +53,17 @@ public class GrafoDirigido extends Grafo {
         System.out.print(">\n");
     }
 
-        
+    public GrafoDirigido grafoTransposto()
+    {
+        GrafoDirigido GT = new GrafoDirigido();
+        GT.vertices = this.vertices;
+        for (Aresta a : arestas)
+        {
+            Aresta atransposta = a.inverte();
+            GT.arestas.add(atransposta);
+        }
+        return GT;
+    }
 
     public void arestasS(Vertice v)
     {

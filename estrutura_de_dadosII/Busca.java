@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Busca {
 
     static int tempo = 0;
+    static ArrayList<Vertice> ordenacao = new ArrayList<Vertice>();
 
     public void buscaEmLargura(Grafo grafo, Vertice inicial)
     {
@@ -70,10 +73,11 @@ public class Busca {
         v.estado = "ENCERRADO";
         tempo = tempo + 1;
         v.te = tempo;
+        ordenacao.add(v);
     }
 
     public void BuscaProfTodos(Grafo grafo)
-    {
+    {        
         for (Vertice v : grafo.vertices)
         {
             v.estado = "NAO_VISITADO";
@@ -88,6 +92,32 @@ public class Busca {
             }
         }
     }
+
+    public String OrdenacaoTopologica(Grafo grafo)
+    {
+        ordenacao.clear();
+        String s = new String();
+        BuscaProfTodos(grafo);
+        int i = 0;
+        for (Vertice v : ordenacao)
+        {
+            s += v.toString() + (i < ordenacao.size()-1 ? " -> " : "");
+            i ++;
+        }
+        return s;
+    }
+
+    public void FortementeConexas(GrafoDirigido grafo)
+    {
+        BuscaProfTodos(grafo);
+        ArrayList<Vertice> invertidoOrdenacao = new ArrayList<>(ordenacao);
+        Collections.reverse(invertidoOrdenacao);
+        GrafoDirigido transposto = grafo.grafoTransposto();
+        BuscaProfTodos(transposto);
+        
+    
+    }
+
 
     public void ImprimeCaminho(Grafo grafo, Vertice raiz, Vertice v){
         if (v==raiz)
@@ -185,4 +215,5 @@ public class Busca {
         }
         return "Grafo Conexo";
     }
+
 }

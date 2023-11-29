@@ -18,9 +18,23 @@ public class Grafo {
         return v;
     }
 
+    public void insereV(Vertice v)
+    {
+        vertices.add(v);
+    }
+
     public Aresta insereA(Vertice v, Vertice u)
     {
         Aresta a = new Aresta(v, u);
+        v.addAresta(a);
+        u.addAresta(a);
+        arestas.add(a);
+        return a;
+    }
+
+    public Aresta insereA(Vertice v, Vertice u, int distancia)
+    {
+        Aresta a = new Aresta(v, u, distancia);
         v.addAresta(a);
         u.addAresta(a);
         arestas.add(a);
