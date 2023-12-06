@@ -71,6 +71,6 @@ Uma estratégia mais adequada dependerá do objetivo pretendido com a auditoria.
 O programa em python pode ser complementado para de adequar as necessidades de um projeto específico. Enquanto  triggers/procedures possuem a limitação da ausência de de quantidade de select e timestamp final.
 
 
-##Referências
+## Referências
 https://fromdual.com/mysql-logon-and-logoff-trigger-for-auditing
 https://fromdual.com/sites/default/files/logon_trigger_wp.pdf
