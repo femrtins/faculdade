@@ -1,4 +1,3 @@
-
 # Estratégias para controle de acesso ao banco de dados (auditoria) 
 
 
